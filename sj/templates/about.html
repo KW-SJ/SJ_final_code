@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  {% include 'template_head.html' %}
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header>{% include 'header.html' %}</header>
+  <!-- End Header -->
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+
+    <div class="container" data-aos="fade-up">
+      <div class="row">
+
+        <div class="col-lg-5 col-md-6">
+          <div class="about-img" data-aos="fade-right" data-aos-delay="100">
+            <img src="/static/assets/img/SJ-Algorithms-1.png" alt=""> <!--모델 사진-->
+          </div>
+        </div>
+
+        <div class="col-lg-7 col-md-6">
+          <div class="about-content" data-aos="fade-left" data-aos-delay="100">
+            <h2>Project Name</h2><!--프로젝트 이름 -->
+            <h3>Camera-based biometric signal prediction</h3> <!-- 한줄 설명 -->
+            <p>코로나19로 인해 직접 신체 접촉을 통하여 혈압, 산소포화도, 심박수, 호흡수를 측정하기 보다는 원거리로 측정하는 것이 좋으므로 카메라를 이용하여 원거리 측정을 할 수 있도록 기획하였습니다.</p>
+            <p></p>
+            <ul>
+              <li><i class="bi bi-check-lg"></i> SpO2(산소포화도) : 산소포화도란 혈액 내 산소량을 의마하며 이 것을 통해 산소가 우리 몸에 잘 공급되고 있는지 판단할 수 있다. 산소포화도는 95~100%가 정상 범위이며 90% 이하에서는 저산소증으로 호흡곤란이 나타나고 80% 이하는 매우 심한 저산소증이다. </li>
+              <li><i class="bi bi-check-lg"></i> BP(혈압) : 혈압이란 동맥혈관 벽에 대항한 혈액의 압력을 말한다. 대한고혈압학회와 미국심장학회는 수축기 혈압 120mmHg 미만, 확장기 혈압 80mmHg 미만을 정상 혈압으로 보고 있다. 수축기 혈압 140mmHg 이상 혹은 확장기 혈압 90mmHg 이상부터는 고혈압으로 본다. </li>
+              <li><i class="bi bi-check-lg"></i> HR(맥박) : 맥박이란 심장이 1분에 몇 번 뛰는지 나타내는 수치이다. 1분에 60~100회의 심박동수가 정상이고 100회 이상은 빈맥, 60회 미만은 서맥으로 부른다. </li>
+              <li><i class="bi bi-check-lg"></i> RR(호흡수) : 호흡수란 1분에 몇 번 호흡 하는지를 나타낸는 수치이다. 1분에 10~20회의 호흡수를 성인의 정상 호흡수라고 본다. </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End About Section -->
+
+  {% include 'template_body.html' %}
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  {% include 'template_head.html' %}
+
+  <!-- 로딩페이지 -->
+      <style type="text/css">
+      .spinner-border {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        width: 3rem;
+        height: 3rem;
+      }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript">
+      function clickedBtn() {
+        // 로딩 표시
+        showLoading();
+        // 로딩 숨기기(10초 후)
+        //setTimeout('hideLoading()', 10000);
+      }
+      function showLoading() {
+        //화면의 높이와 너비를 구합니다.
+        var maskHeight = $(document).height();
+        var maskWidth = window.document.body.clientWidth;
+
+        //화면에 출력할 마스크를 설정해줍니다.
+        var mask =
+          "<div id='mask' style='position:absolute; z-index:1000; background-color:#000000; left:0; top:0;'></div>";
+
+        //화면에 레이어 추가
+        $('body').append(mask);
+
+        //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채웁니다.
+        $('#mask').css({
+          width: maskWidth,
+          height: maskHeight,
+          opacity: '0.3',
+        });
+
+        $('#roadingStatus').show();
+      }
+      function hideLoading() {
+        $('#mask').remove();
+        $('#roadingStatus').hide();
+      }
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header>{% include 'header.html' %}</header>
+  <!-- End Header -->
+
+  <!-- ======= Result Section ======= -->
+  <section id="result" class="result">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row justify-content-center">
+        <div style="padding : 10px; text-align : center;" id="recorder">
+          <button id = "record" class="btn-recorded">Record</button>
+          <button id="stop" class="btn-stop">Stop</button>
+          <a id="download"></a>
+          <script type="text/javascript" src="{{ url_for('static', filename='recorder.js') }}"></script>
+        </div>
+        <div style="text-align : center;">
+          <img id="video" src="{{ url_for('video_viewer') }}" class="img-thumbnail" width="80%"> <!--비디오 설명하는 이미지-->
+        </div>
+        <div class="w-100"></div>
+      </div>
+
+
+      <form align="center" action="/result_post" method="POST" enctype="multipart/form-data">
+        <h4>Show Your Result</h4>
+ <!--       <input type="file" name="object_video" id="object_video" value="object_video"/>
+        <input type="submit" value="확인"/>-->
+        <input class="btn-res" type="submit" id="testBtn" onclick="clickedBtn()" value="확인"/>
+      <div
+        class="spinner-border roadingStatus"
+        id="roadingStatus"
+        role="status"
+        style="display: none"
+      >
+        <span class="sr-only">Loading...</span>
+    </div>
+      </form>
+
+    </div>
+  </section><!-- End Result Section -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="section-bg">
+
+  </footer><!-- End  Footer -->
+
+  {% include 'template_body.html' %}
+
+</body>
+
+</html>
